@@ -21,7 +21,9 @@ str(lapply(files, read.csv))
 
 #Para pasar estas listas a un data frame se usa do.call()
 output <- do.call(rbind, tmp)
-output <- mutate(output,Date = as.Date(Date)) %>% filter(Date<Sys.Date())
+output <- mutate(output,ï..Date = as.Date(ï..Date)) %>% 
+  filter(ï..Date<Sys.Date()) %>% 
+  rename(Date = ï..Date)
 
 #Escribiendo el archivo de Excel
 write.csv(output,"C:/Users/cloud/OneDrive/Desktop/Amazon FBA/PowerBi/Sales per day per product.csv",row.names = TRUE)
